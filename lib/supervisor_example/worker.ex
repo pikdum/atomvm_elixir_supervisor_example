@@ -20,11 +20,13 @@ defmodule SupervisorExample.Worker do
     {:noreply, state}
   end
 
-  def handle_tick(:tick, %{counter: count} = state) do
+  def handle_info(:tick, %{counter: count} = state) do
     :io.format(~c"Tick ~p~n", [count])
     send_tick()
     {:noreply, %{state | counter: count + 1}}
   end
+
+  def handle_info(_msg, state), do: {:noreply, state}
 
   def terminate(_reason, _state), do: :ok
 
