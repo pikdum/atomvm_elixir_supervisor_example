@@ -4,6 +4,6 @@ defmodule SupervisorExample do
   """
 
   def start do
-    SupervisorExample.Supervisor.start(%{})
+    SupervisorExample.Supervisor.start([])
   end
 end
