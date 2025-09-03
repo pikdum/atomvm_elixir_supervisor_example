@@ -1,5 +1,5 @@
 defmodule SupervisorExample.Supervisor do
-  def start(args) do
+  def start(_args) do
     :io.format(~c"Starting Supervisor...~n")
     :supervisor.start_link({:local, __MODULE__}, __MODULE__, [])
   end
